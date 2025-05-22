@@ -1,0 +1,184 @@
+/* ---
+--- */
+@charset "UTF-8";
+
+// Custom styles for the Chirpy theme for ismaelfarah88.github.io
+
+// Import Google Fonts for Arabic
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@400;700&family=Tajawal:wght@400;700&display=swap');
+
+// Apply the Arabic font to the body and override theme defaults if necessary
+body {
+  font-family: 'Noto Sans Arabic', 'Tajawal', sans-serif !important;
+  line-height: 1.7; // Adjusted line height for better readability
+}
+
+// Ensure headings also use the Arabic font
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Noto Sans Arabic', 'Tajawal', sans-serif !important;
+  font-weight: 700; // Ensure headings are bold
+}
+
+// Specific adjustments for post content if needed
+.post-content {
+  font-size: 1.1rem; // Slightly increase post content font size
+}
+
+// Adjust sidebar font if it doesn't inherit properly
+#sidebar {
+  font-family: 'Noto Sans Arabic', 'Tajawal', sans-serif !important;
+}
+
+// It's important to respect the theme's existing SCSS structure.
+// If the theme uses variables for fonts, try to override those.
+// However, for a direct approach, the above !important usage can be effective.
+// We are starting with a direct override.
+
+// Add a comment at the beginning of the file to indicate its purpose
+// For example:
+// ---
+// ---
+// @charset "UTF-8";
+//
+// // Custom styles for the Chirpy theme
+// // Maintained by [Your Name/Agent Name]
+//
+// // Import the theme's main SCSS to extend it (if this file is meant to be the primary SCSS)
+// // Or ensure this file is loaded after the theme's SCSS if it's purely an override sheet.
+// // For now, we assume this file is loaded AFTER the theme's main CSS or is explicitly for overrides.
+
+// --- Color Scheme Enhancements ---
+
+// Define color variables for light mode (these will be overridden by dark mode if theme_mode is dark or system preference)
+:root {
+  // Primary accent color - a slightly more modern blue
+  --chirpy-link-color: #007bff; // A common bootstrap primary blue, good starting point
+  --chirpy-link-hover-color: #0056b3; // Darker shade for hover
+
+  // General text and background - ensuring high contrast and readability
+  // These might already be well-defined by Chirpy, but we can ensure they are set if needed.
+  // Example: --chirpy-text-color: #333333;
+  // Example: --chirpy-bg-color: #ffffff;
+
+  // Sidebar colors - can be adjusted for better harmony if needed
+  // Example: --sidebar-bg: #f8f9fa;
+  // Example: --sidebar-text-color: #333333;
+
+  // Button colors
+  // Example: --button-bg-color: var(--chirpy-link-color);
+  // Example: --button-text-color: #ffffff;
+}
+
+// Override Chirpy's specific variables if they use a different naming convention
+// This requires knowing Chirpy's exact variable names.
+// Based on common Chirpy usage, let's try overriding some known variables.
+// If these specific variable names are incorrect for the theme version,
+// the effect might not apply, and we might need to inspect the theme's default SCSS.
+
+html[data-chirpy-theme='light'] {
+  --link-color: var(--chirpy-link-color);
+  --link-hover-color: var(--chirpy-link-hover-color);
+  // --main-fg-color: var(--chirpy-text-color); // Uncomment and define --chirpy-text-color if changing
+  // --main-bg-color: var(--chirpy-bg-color); // Uncomment and define --chirpy-bg-color if changing
+  // --sidebar-bg-color: var(--sidebar-bg); // Uncomment and define --sidebar-bg if changing
+}
+
+// It's good practice to also define dark theme variables if making significant changes,
+// or ensure the light theme changes translate well to dark mode.
+// For now, we're focusing on subtle light theme adjustments.
+
+// Apply the new link color
+a {
+  color: var(--link-color);
+  &:hover {
+    color: var(--link-hover-color);
+    text-decoration: underline; // Ensure underline on hover for accessibility
+  }
+}
+
+// You might need to be more specific if the theme's selectors are stronger
+// For example:
+// .post-content a {
+//   color: var(--link-color);
+// }
+
+// --- Custom Header/Banner Enhancements ---
+
+// Style the avatar in the sidebar
+#sidebar #avatar {
+  border-radius: 50%; // Ensure it's a circle
+  padding: 5px; // Add a small padding around the avatar
+  background-color: var(--sidebar-bg-color, #f8f9fa); // Use sidebar background or a light default
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); // Add a subtle shadow for depth
+  width: 100px; // Slightly increase the size if the default is smaller
+  height: 100px; // Ensure it's square for a perfect circle
+  margin-bottom: 15px; // Add some space below the avatar
+}
+
+// Style the site title
+#site-title a {
+  font-weight: bold;
+  font-size: 1.5rem; // Make site title more prominent
+  color: var(--main-fg-color, #333); // Use main text color or a dark default
+}
+
+// Style the site tagline
+#site-subtitle {
+  font-size: 0.9rem; // Adjust tagline size
+  color: var(--sidebar-muted-color, #6c757d); // Use a muted color
+  margin-bottom: 20px; // Add space below tagline
+}
+
+// Ensure the sidebar content is centered if that looks better
+// #sidebar .site-info {
+//   text-align: center;
+// }
+
+// --- Spacing and Padding Refinements ---
+
+// Add more padding within posts for better readability
+.post-content {
+  padding-top: 10px; // Add a bit of space above post content
+  padding-bottom: 10px; // Add a bit of space below post content
+}
+
+// Adjust spacing for blockquotes to make them stand out yet integrate well
+blockquote {
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
+  padding: 1em 1.5em; // Slightly increase padding
+  // Consider RTL text direction for quote styling if not already handled by theme
+}
+
+// Add a bit more vertical spacing between list items
+ul, ol {
+  li {
+    margin-bottom: 0.5em; // Add space below each list item
+  }
+}
+
+// Ensure consistent spacing around code blocks
+pre, code {
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+// General container padding (if the theme has a main content wrapper)
+// Example:
+// #main-content-wrapper, .main-content-wrapper {
+//   padding-left: 20px;
+//   padding-right: 20px;
+// }
+// For Chirpy, this is likely handled by #main, so we'll be cautious
+// not to break the theme's responsive design.
+
+// Add a bit more padding to the top navigation bar items if it exists and needs it
+// Example for a generic top bar:
+// .top-bar-nav a {
+//   padding: 10px 15px;
+// }
+// Chirpy's main navigation is in the sidebar, which is already handled.
+// Tabs navigation at the top:
+#tabs a.nav-link {
+    padding: 0.75rem 1rem; // Slightly increase padding for better clickability
+}
