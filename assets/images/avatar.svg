@@ -1,0 +1,19 @@
+<svg width="1024" height="1024" viewBox="0 0 1024 1024" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1024" y2="1024" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#0F172A"/>
+      <stop offset="50%" stop-color="#1E3A8A"/>
+      <stop offset="100%" stop-color="#2563EB"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="0" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0%" stop-color="#38BDF8"/>
+      <stop offset="100%" stop-color="#22C55E"/>
+    </linearGradient>
+  </defs>
+  <rect width="1024" height="1024" rx="220" fill="url(#bg)"/>
+  <circle cx="512" cy="410" r="170" fill="#E2E8F0"/>
+  <path d="M260 880C300 720 410 640 512 640C614 640 724 720 764 880" fill="#E2E8F0"/>
+  <circle cx="512" cy="420" r="120" fill="#0F172A" opacity="0.1"/>
+  <rect x="280" y="760" width="464" height="90" rx="45" fill="url(#accent)"/>
+  <text x="512" y="820" text-anchor="middle" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="48" fill="#0F172A" letter-spacing="4">ISMAEL</text>
+</svg>
