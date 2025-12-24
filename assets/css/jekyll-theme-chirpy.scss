@@ -10,7 +10,7 @@
 // Apply the Arabic font to the body and override theme defaults if necessary
 body {
   font-family: 'Noto Sans Arabic', 'Tajawal', sans-serif !important;
-  line-height: 1.7; // Adjusted line height for better readability
+  line-height: 1.85; // Adjusted line height for better readability
 }
 
 // Ensure headings also use the Arabic font
@@ -21,7 +21,8 @@ h1, h2, h3, h4, h5, h6 {
 
 // Specific adjustments for post content if needed
 .post-content {
-  font-size: 1.1rem; // Slightly increase post content font size
+  font-size: 1.08rem; // Slightly increase post content font size
+  line-height: 1.9; // Improve long-form text readability
 }
 
 // Adjust sidebar font if it doesn't inherit properly
@@ -51,22 +52,25 @@ h1, h2, h3, h4, h5, h6 {
 
 // Define color variables for light mode (these will be overridden by dark mode if theme_mode is dark or system preference)
 :root {
-  // Primary accent color - a slightly more modern blue
-  --chirpy-link-color: #007bff; // A common bootstrap primary blue, good starting point
-  --chirpy-link-hover-color: #0056b3; // Darker shade for hover
+  // Primary accent color - aligned with the site's visual identity
+  --chirpy-link-color: #1a5d9e; // Deep azure for primary actions
+  --chirpy-link-hover-color: #123f6c; // Darker shade for hover
+  --chirpy-accent-color: #f59e0b; // Warm amber for highlights
+  --chirpy-accent-soft: #fef3c7; // Soft background tint for badges/labels
 
   // General text and background - ensuring high contrast and readability
-  // These might already be well-defined by Chirpy, but we can ensure they are set if needed.
-  // Example: --chirpy-text-color: #333333;
-  // Example: --chirpy-bg-color: #ffffff;
+  --chirpy-text-color: #1f2937; // Rich charcoal for text
+  --chirpy-bg-color: #ffffff; // Clean white background
+  --chirpy-muted-color: #6b7280; // Balanced muted text
 
   // Sidebar colors - can be adjusted for better harmony if needed
-  // Example: --sidebar-bg: #f8f9fa;
-  // Example: --sidebar-text-color: #333333;
+  --sidebar-bg: #f6f7fb;
+  --sidebar-text-color: #0f172a;
+  --sidebar-border-color: #e2e8f0;
 
   // Button colors
-  // Example: --button-bg-color: var(--chirpy-link-color);
-  // Example: --button-text-color: #ffffff;
+  --button-bg-color: var(--chirpy-link-color);
+  --button-text-color: #ffffff;
 }
 
 // Override Chirpy's specific variables if they use a different naming convention
@@ -78,9 +82,11 @@ h1, h2, h3, h4, h5, h6 {
 html[data-chirpy-theme='light'] {
   --link-color: var(--chirpy-link-color);
   --link-hover-color: var(--chirpy-link-hover-color);
-  // --main-fg-color: var(--chirpy-text-color); // Uncomment and define --chirpy-text-color if changing
-  // --main-bg-color: var(--chirpy-bg-color); // Uncomment and define --chirpy-bg-color if changing
-  // --sidebar-bg-color: var(--sidebar-bg); // Uncomment and define --sidebar-bg if changing
+  --main-fg-color: var(--chirpy-text-color);
+  --main-bg-color: var(--chirpy-bg-color);
+  --sidebar-bg-color: var(--sidebar-bg);
+  --sidebar-border-color: var(--sidebar-border-color);
+  --sidebar-muted-color: var(--chirpy-muted-color);
 }
 
 // It's good practice to also define dark theme variables if making significant changes,
@@ -96,6 +102,13 @@ a {
   }
 }
 
+// Improve long-form text rhythm
+.post-content p,
+.post-content li {
+  font-size: 1.06rem;
+  line-height: 1.95;
+}
+
 // You might need to be more specific if the theme's selectors are stronger
 // For example:
 // .post-content a {
@@ -109,7 +122,7 @@ a {
   border-radius: 50%; // Ensure it's a circle
   padding: 5px; // Add a small padding around the avatar
   background-color: var(--sidebar-bg-color, #f8f9fa); // Use sidebar background or a light default
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); // Add a subtle shadow for depth
+  box-shadow: 0 8px 18px rgba(15, 23, 42, 0.12); // Add a subtle shadow for depth
   width: 100px; // Slightly increase the size if the default is smaller
   height: 100px; // Ensure it's square for a perfect circle
   margin-bottom: 15px; // Add some space below the avatar
@@ -119,14 +132,34 @@ a {
 #site-title a {
   font-weight: bold;
   font-size: 1.5rem; // Make site title more prominent
-  color: var(--main-fg-color, #333); // Use main text color or a dark default
+  color: var(--sidebar-text-color, #0f172a); // Use sidebar text color or a dark default
 }
 
 // Style the site tagline
 #site-subtitle {
   font-size: 0.9rem; // Adjust tagline size
-  color: var(--sidebar-muted-color, #6c757d); // Use a muted color
+  color: var(--sidebar-muted-color, #6b7280); // Use a muted color
   margin-bottom: 20px; // Add space below tagline
+}
+
+// Sidebar styling refinements
+#sidebar {
+  background: var(--sidebar-bg-color, #f6f7fb);
+  border-inline-end: 1px solid var(--sidebar-border-color, #e2e8f0);
+}
+
+#sidebar a {
+  color: var(--sidebar-text-color, #0f172a);
+  font-weight: 600;
+  &:hover {
+    color: var(--chirpy-link-hover-color);
+  }
+}
+
+#sidebar .nav-link.active {
+  color: var(--chirpy-link-color);
+  background-color: var(--chirpy-accent-soft);
+  border-radius: 0.75rem;
 }
 
 // Ensure the sidebar content is centered if that looks better
